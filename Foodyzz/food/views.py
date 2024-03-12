@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse
 from .models import Item
 from django.template import loader
+
 # Create your views here.
 
 def index(request):
@@ -18,4 +19,10 @@ def item(request):
     return HttpResponse("<h1>Hii PRITIREKHA</h1>")
 
 def detail(request,item_id):
-    return HttpResponse("This is item number/id : %s" %  item_id)
+    item=Item.objects.get(pk=item_id)
+    context={
+        'item':item,
+    }
+    # return HttpResponse("This is item number/id : %s" %  
+    # item_id)
+    return render(request,'food/detail.html',context)
