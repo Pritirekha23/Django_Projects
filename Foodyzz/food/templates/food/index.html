@@ -1,8 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'food/style.css' %}">
+</head>
+
+<body>
+    
+
 {% for item in item_list %} 
 <ul>
     {% comment %} <a href="/food/{{item.id}}"><li>{{ item.id }} ----- {{item.item_name}} </li></a> {% endcomment %}
 
-    <a href="{% url 'detail' item.id %}"><li>{{ item.id }} ----- {{item.item_name}} </li></a>
-    <p>using hardcoded url makes things titely coupled approach means less dynamic  , changing templates will be difficult .</p>
+    <a href="{% url 'food:detail' item.id %}"><li>{{ item.id }} ----- {{item.item_name}} </li></a>
+   
 </ul>
+
 {% endfor %}
+
+
+
+{% comment %} <p>using hardcoded url makes things titely coupled approach means less dynamic  , changing templates will be difficult .</p>
+
+<h2>Name spacing</h2>
+<p>If there are multiple apps and the name of the path is same so to avoid the conflict we will use here name space which is food:detail</p> {% endcomment %}
+
+</body>
+</html>
