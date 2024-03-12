@@ -3,5 +3,6 @@
     {% comment %} <a href="/food/{{item.id}}"><li>{{ item.id }} ----- {{item.item_name}} </li></a> {% endcomment %}
 
     <a href="{% url 'detail' item.id %}"><li>{{ item.id }} ----- {{item.item_name}} </li></a>
+    <p>using hardcoded url makes things titely coupled approach means less dynamic  , changing templates will be difficult .</p>
 </ul>
 {% endfor %}
